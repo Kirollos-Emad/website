@@ -17,11 +17,12 @@ if(isset($_POST['name']) ||isset($_POST['pass']) )
 						if($user_data['UserPassword'] === $password)
 						{
 							//$_SESSION['user_id'] = $user_data['user_id'];
-							header("Location: index.php");
+							//header("Location: index.php");
+							echo "login tmam";
 							die;
 						}
 	
-					} while( $row = sqlsrv_fetch_array( $result ) );
+					} while( $row = $result->fetch_array());
 				
 					echo "<h1>wrong password!</h1> <br>";
 					//die(print_r( sqlsrv_errors(), true));
@@ -31,5 +32,6 @@ if(isset($_POST['name']) ||isset($_POST['pass']) )
 					echo "<h1>wrong username and password!</h1> <br>";
 				}
 			}
+
 }
 ?>

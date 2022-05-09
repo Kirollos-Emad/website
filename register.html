@@ -114,7 +114,7 @@
 
         .header {
             font-size: 20px;
-            font-color: red;
+            color: red;
         }
     </style>
 </head>
@@ -134,7 +134,7 @@
             <div class="form-control error">
 
                 <label for="fname"><b>First Name </b></label>
-                <input type="text" placeholder="Enter your First name" name="fname" id="username">
+                <input type="text" placeholder="Enter your First name" name="fname" id="username" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small> error message</small>
@@ -150,7 +150,7 @@
 
             <div class="form-control success">
 
-                <label for="lname"><b>Phone Number </b></label>
+                <label for="pnum"><b>Phone Number </b></label>
                 <input type="text" placeholder="Enter your phone number" name="pnum" id="pnum" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
@@ -159,8 +159,8 @@
 
             <div class="form-control success">
 
-                <label for="lname"><b>National Number </b></label>
-                <input type="email" placeholder="Enter your national number" name="Nnum" id="Nnum" required>
+                <label for="Nnum"><b>National Number </b></label>
+                <input type="text" placeholder="Enter your national number" name="Nnum" id="Nnum" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small> error message</small>
@@ -168,7 +168,7 @@
 
             <div class="form-control success">
 
-                <label for="lname"><b>Email </b></label>
+                <label for="mail"><b>Email </b></label>
                 <input type="email" placeholder="Enter your Email" name="mail" id="email" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
@@ -200,13 +200,13 @@
             <br>
 
             <div class="container">
-                <input type="submit"  onclick='checkInputs()' class="btn btn-success">Register</input>
+                <input type="submit" onclick='checkInputs()' class="btn btn-success">Register</input>
             </div>
             <br>
             <!--3ayz a5ly al zorar bl 3ard-->
 
             <!-- link momkn yrg3 l page al login-->
-            <p>Already have an account? <a href="">Sign in</a>.</p>
+            <p>Already have an account? <a href="login.html">Sign in</a></p>
 
 
             <!-- 3ayz lon al zorar yb2a azr2-->
