@@ -130,7 +130,7 @@
             <hr>
         </div>
 
-        <form class="form" action="action_page.php" id="form">
+        <form class="form" action="register_handling.php" method="post" id="form">
             <div class="form-control error">
 
                 <label for="fname"><b>First Name </b></label>
@@ -142,7 +142,7 @@
             <div class="form-control success">
 
                 <label for="lname"><b>Last Name </b></label>
-                <input type="email" placeholder="Enter your last name" name="lname" id="lname" required>
+                <input type="text" placeholder="Enter your last name" name="lname" id="lname" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small> error message</small>
@@ -151,7 +151,7 @@
             <div class="form-control success">
 
                 <label for="lname"><b>Phone Number </b></label>
-                <input type="email" placeholder="Enter your phone number" name="pnum" id="pnum" required>
+                <input type="text" placeholder="Enter your phone number" name="pnum" id="pnum" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small> error message</small>
@@ -169,7 +169,7 @@
             <div class="form-control success">
 
                 <label for="lname"><b>Email </b></label>
-                <input type="email" placeholder="Enter your Email" name="lname" id="email" required>
+                <input type="email" placeholder="Enter your Email" name="mail" id="email" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small> error message</small>
@@ -200,13 +200,13 @@
             <br>
 
             <div class="container">
-                <button type="button" onclick='checkInputs()' class="btn btn-success">Register</button>
+                <input type="submit"  onclick='checkInputs()' class="btn btn-success">Register</input>
             </div>
             <br>
             <!--3ayz a5ly al zorar bl 3ard-->
 
             <!-- link momkn yrg3 l page al login-->
-            <p>Already have an account? <a href="#">Sign in</a>.</p>
+            <p>Already have an account? <a href="">Sign in</a>.</p>
 
 
             <!-- 3ayz lon al zorar yb2a azr2-->
