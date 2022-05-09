@@ -1,0 +1,282 @@
+<!--<label for="name">Name (4 to 8 characters):</label>
+
+<input type="text" id="name" name="name" required
+       minlength="4" maxlength="8" size="10">
+//lw 3ayz 3dd mo3ayn mn 7rof aw arkam
+
+-->
+
+<html>
+
+<head>
+    <!--<link rel="stylesheet" href="reg-style.css">-->
+    <style>
+        body {
+            background-color: rgb(155, 89, 182);
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0px;
+        }
+
+        div {
+            display: block;
+        }
+
+        .header h2 {
+
+            margin: 0;
+        }
+
+        .form {
+            padding: 30px 40px;
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        .form-control label {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .form-control.success input {
+            border-color: 1661c;
+        }
+
+        .form-control.erroe input {
+            border-color: #e74c3c;
+        }
+
+        .form-control.success i.fa-check-circle {
+            color: 1661c;
+            visibility: visible;
+        }
+
+        .form-control.error i.fa-exclamation-circle {
+            color: #e74c3c;
+            visibility: visible;
+        }
+
+
+        .form-control input {
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            font-family: inherit;
+            font-size: 14px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .form-control i {
+            position: absolute;
+            top: 40px;
+            right: 10px;
+
+        }
+
+        .form-control small {
+            visibility: visible;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .form button {
+            background-color: #8e44ad;
+            border: 2px solid #8e44ad;
+            border-radius: 4px;
+            color: #fff;
+            display: block;
+            font-family: inherit;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+
+        }
+
+        .container {
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.3) 20px 2px 5px;
+            width: 550px;
+            max-width: 100%;
+            border-radius: 50px;
+            padding: 20px;
+
+        }
+
+        .header {
+            font-size: 20px;
+            font-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- lon al background-->
+    <div class="container">
+
+        <div class="header">
+            <h2 style="text-align: center;">Register</h2>
+
+            <b> Please fill in this form to create an account.</b>
+            <hr>
+        </div>
+
+        <form class="form" action="action_page.php" id="form">
+            <div class="form-control error">
+
+                <label for="fname"><b>First Name </b></label>
+                <input type="text" placeholder="Enter your First name" name="fname" id="username">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small> error message</small>
+            </div>
+            <div class="form-control success">
+
+                <label for="lname"><b>Last Name </b></label>
+                <input type="email" placeholder="Enter your last name" name="lname" id="lname" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small> error message</small>
+            </div>
+
+            <div class="form-control success">
+
+                <label for="lname"><b>Phone Number </b></label>
+                <input type="email" placeholder="Enter your phone number" name="pnum" id="pnum" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small> error message</small>
+            </div>
+
+            <div class="form-control success">
+
+                <label for="lname"><b>National Number </b></label>
+                <input type="email" placeholder="Enter your national number" name="Nnum" id="Nnum" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small> error message</small>
+            </div>
+
+            <div class="form-control success">
+
+                <label for="lname"><b>Email </b></label>
+                <input type="email" placeholder="Enter your Email" name="lname" id="email" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small> error message</small>
+            </div>
+
+            <div class="form-control error">
+                <label for="password"><b>password </b></label>
+                <input type="password" placeholder="Enter your password" name="password" id="password" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small> error message</small>
+            </div>
+
+            <div class="form-control error">
+                <label for="psw"><b>Password check</b></label>
+                <input type="password" placeholder="Enter your Password" name="password" id="password2" required>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small> error message</small>
+            </div>
+
+            <p>Gender:</p>
+
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+
+            <br>
+            <br>
+
+            <div class="container">
+                <button type="button" onclick='checkInputs()' class="btn btn-success">Register</button>
+            </div>
+            <br>
+            <!--3ayz a5ly al zorar bl 3ard-->
+
+            <!-- link momkn yrg3 l page al login-->
+            <p>Already have an account? <a href="#">Sign in</a>.</p>
+
+
+            <!-- 3ayz lon al zorar yb2a azr2-->
+    </div>
+
+    </form>
+
+</body>
+<script>
+    const form = document.getElementById('form');
+    const username = document.getElementById('fname');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const password2 = document.getElementById('password2');
+    form.addÃˆventListener('submit', (e) => {
+        e.preventDefault();
+        checkInputs();
+    });
+    function checkInputs() {
+        // gst the values from the inputs
+        const usernameValue = username.Value.trim();
+        const emailValue = email.value.trim();
+        const passwordValue = password.value.trim();
+        const password2Value = password2.value.trim();
+        if (usernameValue === '') {
+
+            setErrorFor(username, "username cannt be blank");
+        }
+        else {
+
+            setSuccessfor(username);
+
+        }
+
+        if (emailValue === " ") {
+
+            setErrorFor(email, "email cannt be blank");
+
+        }
+        if (passwordValue === "") {
+
+            setErrorFor(password, "password cannt be blank");
+        }
+        else {
+
+            setSuccessfor(password2);
+        }
+        if (password2Value === "") {
+
+            setErrorFor(password2, "password2 cannt be blank");
+        } else if (passwordValue !== password2Value) {
+            setErrorFor(password2, "password2 not match");
+
+        }
+        else {
+
+            setSuccessfor(password);
+
+            function setErrorFor(input, message) {
+                const formControl = input.parentElement;
+                const small = formControl.querySelector('small');
+                small.innerText = message;
+                // add error Class
+                formControl.className = 'form-control error';
+            }
+            function setSuccessFor(input) {
+                const formControl = input.parentElement;
+                formControl.className = 'form-control success';
+
+            }
+</script>
+
+</html>
