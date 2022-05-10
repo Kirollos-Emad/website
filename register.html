@@ -9,6 +9,10 @@
 <html>
 
 <head>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <title>Register</title>
     <!--<link rel="stylesheet" href="reg-style.css">-->
     <style>
         body {
@@ -50,7 +54,7 @@
             border-color: 1661c;
         }
 
-        .form-control.erroe input {
+        .form-control.error input {
             border-color: #e74c3c;
         }
 
@@ -139,7 +143,7 @@
                 <i class="fas fa-exclamation-circle"></i>
                 <small> error message</small>
             </div>
-            <div class="form-control success">
+            <div class="form-control error">
 
                 <label for="lname"><b>Last Name </b></label>
                 <input type="text" placeholder="Enter your last name" name="lname" id="lname" required>
@@ -148,7 +152,7 @@
                 <small> error message</small>
             </div>
 
-            <div class="form-control success">
+            <div class="form-control error">
 
                 <label for="pnum"><b>Phone Number </b></label>
                 <input type="text" placeholder="Enter your phone number" name="pnum" id="pnum" required>
@@ -157,7 +161,7 @@
                 <small> error message</small>
             </div>
 
-            <div class="form-control success">
+            <div class="form-control error">
 
                 <label for="Nnum"><b>National Number </b></label>
                 <input type="text" placeholder="Enter your national number" name="Nnum" id="Nnum" required>
@@ -166,7 +170,7 @@
                 <small> error message</small>
             </div>
 
-            <div class="form-control success">
+            <div class="form-control error">
 
                 <label for="mail"><b>Email </b></label>
                 <input type="email" placeholder="Enter your Email" name="mail" id="email" required>
@@ -200,12 +204,12 @@
             <br>
 
             <div class="container">
-                <input type="submit" onclick='checkInputs()' class="btn btn-success">Register</input>
+                <input type="submit" value="Register" onclick='checkInputs()' class="btn btn-success"></input>
             </div>
             <br>
             <!--3ayz a5ly al zorar bl 3ard-->
 
-            <!-- link momkn yrg3 l page al login-->
+
             <p>Already have an account? <a href="login.html">Sign in</a></p>
 
 
@@ -214,13 +218,25 @@
 
     </form>
     <script>
+        function setErrorFor(input, message) {
+            const formControl = input.parentElement;
+            const small = formControl.querySelector('small');
+            small.innerText = message;
+            // add error Class
+            formControl.className = 'form-control error';
+        }
+        function setSuccessFor(input) {
+            const formControl = input.parentElement;
+            formControl.className = 'form-control success';
+
+        }
         const form = document.getElementById('form');
         const username = document.getElementById('fname');
         const email = document.getElementById('email');
         const password = document.getElementById('password');
         const password2 = document.getElementById('password2');
 
-        form.addÃˆventListener('submit', (e) => {
+        form.addeventListener('submit', (e) => {
             e.preventDefault();
             checkInputs();
         });
@@ -236,7 +252,7 @@
             }
             else {
 
-                setSuccessfor(username);
+                setSuccessFor(username);
 
             }
 
@@ -251,7 +267,7 @@
             }
             else {
 
-                setSuccessfor(password2);
+                setSuccessFor(password2);
             }
             if (password2Value === "") {
 
@@ -262,20 +278,7 @@
             }
             else {
 
-                setSuccessfor(password);
-
-                function setErrorFor(input, message) {
-                    const formControl = input.parentElement;
-                    const small = formControl.querySelector('small');
-                    small.innerText = message;
-                    // add error Class
-                    formControl.className = 'form-control error';
-                }
-                function setSuccessFor(input) {
-                    const formControl = input.parentElement;
-                    formControl.className = 'form-control success';
-
-                }
+                setSuccessFor(password);
             }
         }
     </script>

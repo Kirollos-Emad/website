@@ -18,7 +18,7 @@
 
 </ul>
 <ul class="nav-reg">
-    <li><a href="reg">Register </a></li>
+    <li><a href="register.html">Register </a></li>
     <div class="vl"></div>
     <li><a href="login.html">login </a></li>
 
