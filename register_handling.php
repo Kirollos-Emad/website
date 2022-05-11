@@ -8,6 +8,8 @@
 		$n_num  = $_POST['Nnum'];
 		$email  = $_POST['mail'];
 		$psw    = $_POST['password'];
+		$n_id_image = $_POST['n_id_image'];
+		$image = $_POST['image'];
 		$gender = $_POST['gender'];
 
 
@@ -33,7 +35,7 @@
 				echo "error";
 			}
 		}else{
-			die( print_r(mysql_error()(), true));
+			die( print_r(mysql_error(), true));
 		}
 
 		if($check_mail===false )
@@ -47,6 +49,18 @@
 			$sql = "insert into tbl_guest(UserFirstName, UserLastName, UserGender, UserPhoneNumber,
 			 UserNationalIdNumber, UserMail, UserPassword) VALUES 
 			 ('$fn','$ls','$gender','$p_num','$n_num','$email','$psw')";
+			$con->query($sql);
+			
+			
+			$sql = "SELECT UserId,UserMail FROM tbl_guest WHERE UserMail = $email"
+			$result = $con->query($sql);
+			$row = $result->fetch_array();
+			$uid = $row['UserId'];
+			$umail = $row['UserMail'];
+			$unimage = "national_" . $umail;
+			$uimage = "self_" . $umail;
+			
+			$sql="UPDATE tbl_guest SET UserNationalIdImage = $unimage, UserImage=$uimage WHERE UserId = $uid";
 			$con->query($sql);
 		}
 	}
