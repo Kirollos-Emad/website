@@ -12,9 +12,13 @@
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title>Register</title>
     <!--<link rel="stylesheet" href="reg-style.css">-->
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
+
         body {
             background-color: rgb(155, 89, 182);
             box-sizing: border-box;
@@ -59,7 +63,7 @@
         }
 
         .form-control.success i.fa-check-circle {
-            color: 1661c;
+            color: #2ecc71;
             visibility: visible;
         }
 
@@ -80,6 +84,7 @@
         }
 
         .form-control i {
+            visibility: hidden;
             position: absolute;
             top: 40px;
             right: 10px;
@@ -129,70 +134,71 @@
 
         <div class="header">
             <h2 style="text-align: center;">Register</h2>
-
-            <b> Please fill in this form to create an account.</b>
+            <p> Please fill in this form to create an account.</p>
             <hr>
         </div>
 
         <form class="form" action="register_handling.php" method="post" id="form">
-            <div class="form-control error">
+
+            <div class="form-control" id="name_div">
 
                 <label for="fname"><b>First Name </b></label>
-                <input type="text" placeholder="Enter your First name" name="fname" id="username" required>
+                <input type="text" placeholder="Enter your First name" name="fname" id="username">
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
-                <small> error message</small>
+                <small></small>
             </div>
-            <div class="form-control error">
+
+            <div class="form-control">
 
                 <label for="lname"><b>Last Name </b></label>
                 <input type="text" placeholder="Enter your last name" name="lname" id="lname" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
-                <small> error message</small>
+                <small></small>
             </div>
 
-            <div class="form-control error">
+            <div class="form-control">
 
                 <label for="pnum"><b>Phone Number </b></label>
                 <input type="text" placeholder="Enter your phone number" name="pnum" id="pnum" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
-                <small> error message</small>
+                <small></small>
             </div>
 
-            <div class="form-control error">
+            <div class="form-control">
 
                 <label for="Nnum"><b>National Number </b></label>
                 <input type="text" placeholder="Enter your national number" name="Nnum" id="Nnum" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
-                <small> error message</small>
+                <small></small>
             </div>
 
-            <div class="form-control error">
+            <div class="form-control">
 
                 <label for="mail"><b>Email </b></label>
                 <input type="email" placeholder="Enter your Email" name="mail" id="email" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
-                <small> error message</small>
+                <small></small>
             </div>
 
-            <div class="form-control error">
+            <div class="form-control">
                 <label for="password"><b>password </b></label>
                 <input type="password" placeholder="Enter your password" name="password" id="password" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
-                <small> error message</small>
+                <small></small>
             </div>
 
-            <div class="form-control error">
-                <label for="psw"><b>Password check</b></label>
+            <div class="form-control">
+                <label for="psw"><b>Confirm Password</b></label>
                 <input type="password" placeholder="Enter your Password" name="password" id="password2" required>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
-                <small> error message</small>
+                <small></small>
             </div>
 
             <p>Gender:</p>
@@ -204,7 +210,9 @@
             <br>
 
             <div class="container">
-                <input type="submit" value="Register" onclick='checkInputs()' class="btn btn-success"></input>
+                <!-- <input type="submit" value="Register" onclick="checkInputs()" class="btn btn-success" id="btn"></input> -->
+                <button type="submit" value="Register" onclick="checkInputs()" onsubmit="checkInputs()"
+                    class="btn btn-success" id="btn"></button>
             </div>
             <br>
             <!--3ayz a5ly al zorar bl 3ard-->
@@ -218,67 +226,100 @@
 
     </form>
     <script>
-        function setErrorFor(input, message) {
-            const formControl = input.parentElement;
-            const small = formControl.querySelector('small');
-            small.innerText = message;
-            // add error Class
-            formControl.className = 'form-control error';
-        }
-        function setSuccessFor(input) {
-            const formControl = input.parentElement;
-            formControl.className = 'form-control success';
-
-        }
         const form = document.getElementById('form');
-        const username = document.getElementById('fname');
+        const fname = document.getElementById('username');
+        const lname = document.getElementById('lname');
+        const pnum = document.getElementById('pnum');
+        const Nnum = document.getElementById('Nnum');
         const email = document.getElementById('email');
         const password = document.getElementById('password');
         const password2 = document.getElementById('password2');
+        const btn = document.getElementById('btn');
 
-        form.addeventListener('submit', (e) => {
-            e.preventDefault();
-            checkInputs();
-        });
+        var ons;
+
+        function retons() {
+            return ons;
+        }
+
+
+
+
+        function setErrorFor(input, message) {
+            const formControl = input.parentElement;
+            const small = formControl.querySelector('small');
+            formControl.className = 'form-control error';
+            small.innerText = message;
+            btn.addEventListener("click", function (event) {
+                event.preventDefault();
+            });
+        }
+
+        function setSuccessFor(input) {
+            const formControl = input.parentElement;
+            formControl.className = 'form-control success';
+            const small = formControl.querySelector('small');
+            small.innerText = "";
+            // return true;
+        }
+
         function checkInputs() {
-            // gst the values from the inputs
-            const usernameValue = username.Value.trim();
+            // trim to remove the whitespaces
+            const fnamevalue = fname.value.trim();
+            const lnameValue = lname.value.trim();
+            const pnumValue = pnum.value.trim();
+            const NnumValue = Nnum.value.trim();
             const emailValue = email.value.trim();
             const passwordValue = password.value.trim();
             const password2Value = password2.value.trim();
-            if (usernameValue === '') {
 
-                setErrorFor(username, "username cannt be blank");
-            }
-            else {
-
-                setSuccessFor(username);
-
+            if (fnamevalue == "") {
+                setErrorFor(fname, 'First Name cannot be blank');
+            } else {
+                setSuccessFor(fname);
             }
 
-            if (emailValue === " ") {
-
-                setErrorFor(email, "email cannt be blank");
-
+            if (lnameValue === '') {
+                setErrorFor(lname, 'Last Name cannot be blank');
+            } else {
+                setSuccessFor(lname);
             }
-            if (passwordValue === "") {
 
-                setErrorFor(password, "password cannt be blank");
+            if (pnumValue === '') {
+                setErrorFor(pnum, 'Phone Number cannot be blank');
+            } else {
+                setSuccessFor(pnum);
             }
-            else {
 
-                setSuccessFor(password2);
+            if (NnumValue === '') {
+                setErrorFor(Nnum, 'National Number cannot be blank');
+            } else {
+                setSuccessFor(Nnum);
             }
-            if (password2Value === "") {
 
-                setErrorFor(password2, "password2 cannt be blank");
-            } else if (passwordValue !== password2Value) {
-                setErrorFor(password2, "password2 not match");
-
+            if (emailValue === '') {
+                setErrorFor(email, 'Email cannot be blank');
+            } else {
+                setSuccessFor(email);
             }
-            else {
 
+            if (passwordValue === '') {
+                setErrorFor(password, 'Password cannot be blank');
+            } else {
                 setSuccessFor(password);
+            }
+
+            if (password2Value === '') {
+                setErrorFor(password2, 'Confirm Password cannot be blank');
+            }
+            else if (passwordValue !== password2Value) {
+                btn.addEventListener("click", function (event) {
+                    event.preventDefault();
+                });
+                setErrorFor(password2, 'Passwords does not match');
+
+            } else {
+                setSuccessFor(password2);
             }
         }
     </script>
