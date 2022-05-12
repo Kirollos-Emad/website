@@ -52,15 +52,16 @@
 			$con->query($sql);
 			
 			
-			$sql = "SELECT UserId,UserMail FROM tbl_guest WHERE UserMail = $email"
-			$result = $con->query($sql);
-			$row = $result->fetch_array();
-			$uid = $row['UserId'];
-			$umail = $row['UserMail'];
-			$unimage = "national_" . $umail;
-			$uimage = "self_" . $umail;
+			$sql     = "select UserId,UserMail FROM tbl_guest WHERE UserMail = '$email'";
+			$result  = $con->query($sql);
+			$row     = $result->fetch_array();
+			$uid     = $row['UserId'];
+			$umail   = $row['UserMail'];
+			$unimage = $umail . "_national";
+			$uimage  = $umail . "_self";
 			
-			$sql="UPDATE tbl_guest SET UserNationalIdImage = $unimage, UserImage=$uimage WHERE UserId = $uid";
+			// move_uploaded_file($unimage,)
+			$sql = "update tbl_guest set UserNationalIdImage = '$unimage', UserImage = '$uimage' WHERE UserId = '$uid' ";
 			$con->query($sql);
 		}
 	}
