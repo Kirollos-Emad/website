@@ -9,7 +9,7 @@
 		$email  = $_POST['mail'];
 		$psw    = $_POST['password'];
 		$n_id_image = $_POST['n_id_image'];
-		$image = $_POST['image'];
+		$image  = $_POST['image'];
 		$gender = $_POST['gender'];
 
 

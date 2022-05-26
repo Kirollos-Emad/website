@@ -1,0 +1,105 @@
+body {
+    background-color: rgb(155, 89, 182);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0px;
+}
+
+div {
+    display: block;
+}
+
+.header h2 {
+
+    margin: 0;
+}
+
+.form {
+    padding: 30px 40px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-control label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.form-control.success input {
+    border-color: 1661c;
+}
+
+.form-control.error input {
+    border-color: #e74c3c;
+}
+
+.form-control.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.form-control.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+
+.form-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-control i {
+    visibility: hidden;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+
+}
+
+.form-control small {
+    visibility: visible;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+}
+
+.form button {
+    background-color: #8e44ad;
+    border: 2px solid #8e44ad;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+
+}
+
+.container {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.3) 20px 2px 5px;
+    width: 550px;
+    max-width: 100%;
+    border-radius: 50px;
+    padding: 20px;
+
+}
+
+.header {
+    font-size: 20px;
+    color: red;
+}
