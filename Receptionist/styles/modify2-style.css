@@ -1,5 +1,10 @@
-div.room_search {
+div.after-header {
     padding-top: 100px;
+    width: 100%;
+}
+
+div.rooms {
+    /* padding-top: 25px; */
     width: 100%;
 }
 
@@ -15,10 +20,17 @@ table td {
     text-align: center;
     border: 3px solid;
     border-spacing: 3px;
+    font-weight: bold;
+    font-style: italic;
 }
 
 table th {
     border: 3px solid;
     border-spacing: 3px;
     background-color: aquamarine;
+}
+
+select {
+    border-radius: 15px;
+    text-align: center;
 }

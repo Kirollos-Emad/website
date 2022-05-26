@@ -1,4 +1,4 @@
-div.room_search {
+div.av_ro {
     padding-top: 100px;
     width: 100%;
 }
@@ -7,6 +7,8 @@ table {
     width: 100%;
     border: 4px solid;
     border-spacing: 3px;
+    margin-top: 10px;
+
 }
 
 table td {
