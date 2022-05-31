@@ -13,8 +13,8 @@ div.card {
 }
 
 div.img_name_mail img {
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 400px;
     vertical-align: middle;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -26,6 +26,11 @@ div.name_mail {
     display: inline-block;
 }
 
+div.name_mail h1 {
+    font-size: 55px;
+}
+
+
 div.img_name_mail a {
     text-decoration: none;
     color: black;
@@ -33,4 +38,15 @@ div.img_name_mail a {
 
 div.img_name_mail a:hover {
     color: green;
+}
+
+div.buttons {
+    padding: 10px;
+    text-align: center;
+}
+
+div.buttons input {
+    border-radius: 50px;
+    padding: 10px;
+    font-size: 55px;
 }

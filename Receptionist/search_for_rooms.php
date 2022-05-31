@@ -10,7 +10,7 @@
 
 <body>
     <!-- Header -->
-    <?php include("header.html"); ?>
+    <?php include("includes/templates/header.html"); ?>
 
     <div class="room_search">
         <h1 style = "border: 6px solid gray; background-color: #f0f0f0; width: 100%; text-align: center;">

@@ -1,14 +1,15 @@
 <?php include("../includes/connection.php"); ?>
 <html>
     <head>
-        <title>modify rooms</title>
+        <title>Receptionist Dashboard</title>
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="styles/header-style.css">
-        <link rel="stylesheet" href="styles/modify2-style.css">
+        <link rel="stylesheet" href="styles/conf_rej_wait2.css">
+    </head>
 
-        <script>
+    <script>
             function getRooms(counter)
             {
                 var type = document.getElementById("types_"+counter).value;
@@ -57,6 +58,7 @@
                         var temp = parts[i].split("=");
                         $_GET[decodeURIComponent(temp[0])] = decodeURIComponent(temp[1]);
                     }
+                    // alert($_GET['ReservationId'] + " " + new_room_id);
                     
                     jQuery.ajax( {
                         url: "includes/func/chan_rooms.php",
@@ -107,20 +109,51 @@
                     } );
                 }
             }
-	    </script>
-    </head>
+
+            function conf(res_id)
+            {
+                var text = "By clicking ok the reservation will be confirmed\nNote: make sure add the rooms the user reserve it";
+                if (confirm(text) == true)
+                {
+                    jQuery.ajax({
+                            url: "includes/func/confirm_res.php",
+                            data: 'res_id=' + res_id,
+                            type: "POST",
+                            success: function(data){
+                                document.location.href = "conf_rej_wait_res1.php";
+                            }
+                        });
+                }
+            }
+
+            function rej(res_id)
+            {
+                var text = "By clicking ok the reservation will be canceled\nNote: make sure you need to cancel the reservation";
+                if (confirm(text) == true)
+                {
+                    jQuery.ajax({
+                            url: "includes/func/rej_res.php.php",
+                            data: 'res_id=' + res_id,
+                            type: "POST",
+                            success: function(data){
+                                document.location.href = "conf_rej_wait_res1.php";
+                            }
+                        });
+                }
+            }
+    </script>
 
     <body>
+        <!-- Header -->
         <?php include("includes/templates/header.html"); ?>
 
         <div class = "after-header" >
-
             <h1 style = "border: 6px solid gray; background-color: #f0f0f0; width: 100%; text-align: center; ">
-                change the room or delete it 
+                The rooms user have
             </h1>
 
             <div class = "rooms">
-                <?php
+            <?php
                     $sql_get_rooms = "select RoomId FROM tbl_reservation_current WHERE ReservationId = " . $_GET['ReservationId'];
                     $result_get_rooms = $con->query($sql_get_rooms);
                     
@@ -168,10 +201,46 @@
                     }
                 ?>
             </div>
+            
+            <br>
 
-            <br> <br>
             <h1 style = "border: 6px solid gray; background-color: #f0f0f0; width: 100%; text-align: center; ">
-                Add new room for this reservation 
+                The rooms user reserve
+            </h1>
+
+            <div class = "rooms">
+                <?php
+
+                    $sql_get_rooms_id_user_reserve = "select RoomTypeId, NumberOfRooms FROM tbl_reservation_comming WHERE ReservationId = ". $_GET['ReservationId'];
+                    $result_get_rooms_id_user_reserve = $con->query($sql_get_rooms_id_user_reserve);
+
+                    if($result_get_rooms_id_user_reserve->num_rows > 0)
+                    {
+                        echo "<table>
+                        <tr> <th>Room Type</th> <th>Number of Rooms</th></tr>";
+                        while($row_rooms_id_user_reserve = $result_get_rooms_id_user_reserve->fetch_array())
+                        {
+                            $sql_get_room_type = "select RoomType FROM tbl_room_details WHERE RoomTypeId = " . $row_rooms_id_user_reserve['RoomTypeId'];
+                            $result_get_room_type = $con->query($sql_get_room_type);
+                            $row_room_type = $result_get_room_type->fetch_array();
+
+                            echo"<tr>
+                                    <td>".$row_room_type['RoomType']."</td>
+                                    <td>".$row_rooms_id_user_reserve['NumberOfRooms']."</td>
+                                </tr>";
+                        }
+                        echo "</table>";
+                    }
+                    else{
+                        echo "<h1 style = \"text-align: center; padding-top: 100px;\">No Data Available</h1>";
+                    }
+                ?>
+            </div>
+
+            <br>
+
+            <h1 style = "border: 6px solid gray; background-color: #f0f0f0; width: 100%; text-align: center; ">
+                Add the rooms
             </h1>
 
             <table>
@@ -199,8 +268,13 @@
                     <td><input type = "button" value = "Add" onclick = "add_new_room()"></td>
                 </tr>
             </table>
-        </div>
-        
 
+            <?php
+                echo "<div class = \"buttons\">
+                        <input type = \"button\" value = \"Reject\" onclick = \"rej(".$_GET['ReservationId'].")\">
+                        <input type = \"button\" value = \"Confirm\" onclick = \"conf(".$_GET['ReservationId'].")\">
+                    </div>";
+            ?>
+        </div>
     </body>
 </html>

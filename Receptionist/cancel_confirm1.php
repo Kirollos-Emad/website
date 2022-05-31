@@ -36,7 +36,7 @@
 
     <div class = "rooms_in_reservation">
         <h1 style = "border: 6px solid gray; background-color: #f0f0f0; width: 100%; text-align: center;">
-        Please click on the image or the name to modify rooms data 
+        Please click on the image or the name to cancel the reservation 
         </h1>
 
         <br>
@@ -71,7 +71,7 @@
                                 <img src = \"../img/Guest/Guest_Image/" . $row_user_data['UserMail'] .".jpg\">
                             </a>
                                 <div class = \"name_mail\">
-                                    <a href = \"modify_rooms_2.php?ReservationId=". $row_res_id['ReservationId'] ."\">
+                                    <a href = \"cancel_confirm2.php?ReservationId=". $row_res_id['ReservationId'] ."\">
                                     <h1>Name: ". $row_user_data['UserFirstName'] . " " . $row_user_data['UserLastName'] . "</h1>
                                     </a>   
                                     <h1>Mail: " . $row_user_data['UserMail'] . "</h1>

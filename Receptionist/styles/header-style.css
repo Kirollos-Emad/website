@@ -28,6 +28,11 @@ nav a {
     padding-right: 25px;
 }
 
+nav li {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 /*  */
 
 ul {

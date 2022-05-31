@@ -12,7 +12,7 @@
 
 <body>
     <!-- Header -->
-    <?php include("header.html"); ?>
+    <?php include("includes/templates/header.html"); ?>
 
     <div class="cards">
         <div class="first_card">
